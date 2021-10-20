@@ -35,7 +35,7 @@ public class Message {
     @ManyToOne
     @JoinColumn(name = "id")
     @JsonIgnoreProperties({"messages", "client", "reservations"})
-    private Quadbike quadbike;
+    private Quadbike quadbikes;
     
     @ManyToOne
     @JoinColumn(name = "clientId")
@@ -59,12 +59,12 @@ public class Message {
         this.messageText = messageText;
     }
 
-    public Quadbike getQuadbike() {
-        return quadbike;
+    public Quadbike getQuadbikes() {
+        return quadbikes;
     }
 
-    public void setQuadbike(Quadbike quadbike) {
-        this.quadbike = quadbike;
+    public void setQuadbikes(Quadbike quadbikes) {
+        this.quadbikes = quadbikes;
     }
 
     public Client getClient() {

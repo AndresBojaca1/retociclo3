@@ -34,7 +34,7 @@ public class Category implements Serializable {
     //Relacion uno a muchos -> Base de datos relacional
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="category")
     @JsonIgnoreProperties("category")
-    private List<Quadbike> quadbike;
+    private List<Quadbike> quadbikes;
     
     //Creacion getter y setter
 
@@ -62,12 +62,12 @@ public class Category implements Serializable {
         this.description = description;
     }
 
-    public List<Quadbike> getQuadbike() {
-        return quadbike;
+    public List<Quadbike> getQuadbikes() {
+        return quadbikes;
     }
 
-    public void setQuadbike(List<Quadbike> quadbike) {
-        this.quadbike = quadbike;
+    public void setQuadbikes(List<Quadbike> quadbikes) {
+        this.quadbikes = quadbikes;
     }
 
     
