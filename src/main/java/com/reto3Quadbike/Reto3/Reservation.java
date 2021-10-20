@@ -21,7 +21,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "reservations")
+@Table(name = "reservation")
 
 public class Reservation {
     
@@ -38,7 +38,7 @@ public class Reservation {
     @ManyToOne
     @JoinColumn(name = "id")
     @JsonIgnoreProperties("reservations")
-    private Quadbike quadbikes;
+    private Quadbike quadbike;
 
     @ManyToOne
     @JoinColumn(name = "idClient")
@@ -80,12 +80,12 @@ public class Reservation {
         this.status = status;
     }
 
-    public Quadbike getQuadbikes() {
-        return quadbikes;
+    public Quadbike getQuadbike() {
+        return quadbike;
     }
 
-    public void setQuadbikes(Quadbike quadbikes) {
-        this.quadbikes = quadbikes;
+    public void setQuadbike(Quadbike quadbike) {
+        this.quadbike = quadbike;
     }
 
     public Client getClient() {

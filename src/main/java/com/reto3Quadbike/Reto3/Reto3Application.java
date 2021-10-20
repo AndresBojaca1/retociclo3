@@ -1,4 +1,7 @@
 /**  
+ * REVISAR DE NUEVO HAY MUCHOS ERRORES ---
+ * 
+ * 
  * COMPLETOS
  * 1. Parte 1 -> https://www.youtube.com/watch?v=81-zDQw_HFs&ab_channel=PaulaAndreaMartinez --------> 2:05:09
  * 2. Parte 2 -> https://www.youtube.com/watch?v=9Ybd42-6pZI&ab_channel=PaulaAndreaMartinez

@@ -20,7 +20,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "messages")
+@Table(name = "message")
 
 public class Message {
     
@@ -35,7 +35,7 @@ public class Message {
     @ManyToOne
     @JoinColumn(name = "id")
     @JsonIgnoreProperties({"messages", "client", "reservations"})
-    private Quadbike quadbikes;
+    private Quadbike quadbike;
     
     @ManyToOne
     @JoinColumn(name = "clientId")
@@ -59,12 +59,12 @@ public class Message {
         this.messageText = messageText;
     }
 
-    public Quadbike getQuadbikes() {
-        return quadbikes;
+    public Quadbike getQuadbike() {
+        return quadbike;
     }
 
-    public void setQuadbikes(Quadbike quadbikes) {
-        this.quadbikes = quadbikes;
+    public void setQuadbike(Quadbike quadbike) {
+        this.quadbike = quadbike;
     }
 
     public Client getClient() {

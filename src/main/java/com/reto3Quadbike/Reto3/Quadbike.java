@@ -23,7 +23,7 @@ import javax.persistence.Table;
  * @author andre
  */
 @Entity
-@Table(name = "quadbikes")
+@Table(name = "quadbike")
 public class Quadbike implements Serializable {
     
     @Id
@@ -42,12 +42,12 @@ public class Quadbike implements Serializable {
     @JsonIgnoreProperties("quadbikes")
     private Category category;
 
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "quadbikes")
-    @JsonIgnoreProperties({"quadbikes", "client"})
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "quadbike")
+    @JsonIgnoreProperties({"quadbike", "client"})
     private List<Message> messages;
 
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "quadbikes")
-    @JsonIgnoreProperties({"quadbikes", "client"})
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "quadbike")
+    @JsonIgnoreProperties({"quadbike", "client"})
     private List<Reservation> reservations;
     
     //CREACION GETTER AND SETTER DE LOS ATRIBUTOS
