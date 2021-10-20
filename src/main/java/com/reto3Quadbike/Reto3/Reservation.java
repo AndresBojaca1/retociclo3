@@ -21,7 +21,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "reservation")
+@Table(name = "reservations")
 
 public class Reservation {
     
@@ -37,12 +37,12 @@ public class Reservation {
     //Relacion entre tablas
     @ManyToOne
     @JoinColumn(name = "id")
-    @JsonIgnoreProperties("reservation")
+    @JsonIgnoreProperties("reservations")
     private Quadbike quadbike;
 
     @ManyToOne
     @JoinColumn(name = "idClient")
-    @JsonIgnoreProperties({"reservation","message"})
+    @JsonIgnoreProperties({"reservations","messages"})
     private Client client;
     
     private String score;

@@ -23,7 +23,7 @@ import javax.persistence.Table;
  * @author andre
  */
 @Entity
-@Table(name = "quadbike")
+@Table(name = "quadbikes")
 public class Quadbike implements Serializable {
     
     @Id
@@ -39,14 +39,14 @@ public class Quadbike implements Serializable {
     //Relacion muchos  a uno
     @ManyToOne
     @JoinColumn(name = "categoryId")
-    @JsonIgnoreProperties("quadbike")
+    @JsonIgnoreProperties("quadbikes")
     private Category category;
 
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "quadbike")
-    @JsonIgnoreProperties({"quadbike", "client"})
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "quadbikes")
+    @JsonIgnoreProperties({"quadbikes", "client"})
     private List<Message> message;
 
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "quadbike")
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "quadbikes")
     @JsonIgnoreProperties({"quadbike", "client"})
     private List<Reservation> reservation;
     

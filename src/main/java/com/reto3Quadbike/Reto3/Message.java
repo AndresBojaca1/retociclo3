@@ -20,7 +20,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "message")
+@Table(name = "messages")
 
 public class Message {
     
@@ -34,12 +34,12 @@ public class Message {
     //Relacion muchos a uno 
     @ManyToOne
     @JoinColumn(name = "id")
-    @JsonIgnoreProperties({"message", "client", "reservation"})
+    @JsonIgnoreProperties({"messages", "client", "reservations"})
     private Quadbike quadbike;
     
     @ManyToOne
     @JoinColumn(name = "clientId")
-    @JsonIgnoreProperties({"message", "client", "reservation"})
+    @JsonIgnoreProperties({"messages", "client", "reservations"})
     private Client client;
 
     //Getters y Setters
