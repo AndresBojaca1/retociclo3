@@ -3,32 +3,65 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.reto3Quadbike.Reto3;
+package com.reto3Quadbike.Reto3.Services;
 
+import com.reto3Quadbike.Reto3.Model.Client;
+import com.reto3Quadbike.Reto3.Repository.ClientRepositorio;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
+ * ClientServicios 
+ * 
+ * En esta clase mediante la anotación @Service, se indica que
+ * se contendrá la lógica de negocio de la clase Client Será usada como la capa
+ * de servicios
  *
- * @author andre
+ *
+ * @since 23/10/2021
+ * @version 0.0.1 - SNAPSHOT
+ * @author Andres Bojaca
  */
 @Service
 public class ClientServicios {
-    
-    @Autowired
-    private ClientRepositorio metodoCrud;
-    
 
+    @Autowired
+    /**
+     * Definición de la variable metodoCrud Es de tipo ClientRepositorio e
+     * implementa metodos CRUD
+     */
+    private ClientRepositorio metodoCrud;
+
+    /**
+     * getAll() Esta función retorna el método getAll() del repositorio -> GET -
+     * READ
+     *
+     * @return
+     */
     public List<Client> getAll() {
         return metodoCrud.getAll();
     }
 
+    /**
+     * getClient(int clientId) Esta funcion obtiene la Id del cliente -> GET -
+     * READ
+     *
+     * @param clientId
+     * @return
+     */
     public Optional<Client> getClient(int clientId) {
         return metodoCrud.getClient(clientId);
     }
 
+    /**
+     * save(Client client) Esta función guarda información de la clase Client y
+     * sus atributos -> POST - CREATE
+     *
+     * @param client
+     * @return
+     */
     public Client save(Client client) {
         if (client.getIdClient() == null) {
             return metodoCrud.save(client);
@@ -42,6 +75,13 @@ public class ClientServicios {
         }
     }
 
+    /**
+     * update(Client client) Esta función actualiza información con un id de
+     * cliente existente -> PUT - UPDATE
+     *
+     * @param client
+     * @return
+     */
     public Client update(Client client) {
         if (client.getIdClient() != null) {
             Optional<Client> respuesta = metodoCrud.getClient(client.getIdClient());
@@ -65,6 +105,13 @@ public class ClientServicios {
         }
     }
 
+    /**
+     * deleteClient(int clientId) Esta función elimina a partir de id de
+     * cliente-> DELETE - DELETE
+     *
+     * @param clientId
+     * @return
+     */
     public boolean deleteClient(int clientId) {
         Boolean respuesta = getClient(clientId).map(client -> {
             metodoCrud.delete(client);

@@ -3,48 +3,90 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.reto3Quadbike.Reto3;
+package com.reto3Quadbike.Reto3.Services;
 
+import com.reto3Quadbike.Reto3.Repository.ReservationRepositorio;
+import com.reto3Quadbike.Reto3.Model.Reservation;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
+ * ReservationServicios 
+ * 
+ * En esta clase mediante la anotación @Service, se indica que
+ * se contendrá la lógica de negocio de la clase Reservation Será usada como la
+ * capa de servicios
  *
- * @author andre
+ *
+ * @since 23/10/2021
+ * @version 0.0.1 - SNAPSHOT
+ * @author Andres Bojaca
  */
 @Service
 public class ReservationServicios {
-    
+
     @Autowired
+    /**
+     * getAll() Esta función retorna el método getAll() del repositorio -> GET -
+     * READ
+     *
+     * @return
+     */
     private ReservationRepositorio metodoCrud;
 
-    public List<Reservation> getAll(){
+    /**
+     * getAll() Esta función retorna el método getAll() del repositorio
+     *
+     * @return
+     */
+    public List<Reservation> getAll() {
         return metodoCrud.getAll();
     }
 
+    /**
+     * getReservation(int reservationId) Esta función obtiene la Id de
+     * reservaciones -> GET - READ
+     *
+     * @param reservationId
+     * @return
+     */
     public Optional<Reservation> getReservation(int reservationId) {
         return metodoCrud.getReservation(reservationId);
     }
 
-    public Reservation save(Reservation reservation){
-        if (reservation.getIdReservation ()== null) {
+    /**
+     * save(Reservation reservation) Esta función guarda información de la clase
+     * Reservation y sus atributos -> POST - CREATE
+     *
+     * @param reservation
+     * @return
+     */
+    public Reservation save(Reservation reservation) {
+        if (reservation.getIdReservation() == null) {
             return metodoCrud.save(reservation);
-        }else{
+        } else {
             Optional<Reservation> respuesta = metodoCrud.getReservation(reservation.getIdReservation());
             if (respuesta.isEmpty()) {
                 return metodoCrud.save(reservation);
-            }else{
+            } else {
                 return reservation;
             }
         }
     }
 
-    public Reservation update(Reservation reservation){
+    /**
+     * update(Reservation reservation) Esta función actualiza información con un
+     * id de reservación existente -> PUT - UPDATE
+     *
+     * @param reservation
+     * @return
+     */
+    public Reservation update(Reservation reservation) {
         if (reservation.getIdReservation() != null) {
             Optional<Reservation> respuesta = metodoCrud.getReservation(reservation.getIdReservation());
-            if(!respuesta.isEmpty()){
+            if (!respuesta.isEmpty()) {
 
                 if (reservation.getStartDate() != null) {
                     respuesta.get().setStartDate(reservation.getStartDate());
@@ -57,14 +99,21 @@ public class ReservationServicios {
                 }
                 metodoCrud.save(respuesta.get());
                 return respuesta.get();
-            }else{
+            } else {
                 return reservation;
             }
-        }else{
+        } else {
             return reservation;
         }
     }
 
+    /**
+     * deleteReservation(int reservationId) Esta función elimina a partir de id
+     * de reservación -> DELETE - DELETE
+     *
+     * @param reservationId
+     * @return
+     */
     public boolean deleteReservation(int reservationId) {
         Boolean respuesta = getReservation(reservationId).map(reservation -> {
             metodoCrud.delete(reservation);

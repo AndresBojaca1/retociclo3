@@ -1,10 +1,8 @@
 /**  
- * REVISAR DE NUEVO HAY MUCHOS ERRORES ---
- * 
  * 
  * COMPLETOS
- * 1. Parte 1 -> https://www.youtube.com/watch?v=81-zDQw_HFs&ab_channel=PaulaAndreaMartinez --------> 2:05:09
- * 2. Parte 2 -> https://www.youtube.com/watch?v=9Ybd42-6pZI&ab_channel=PaulaAndreaMartinez
+ * 1. Parte 1 -> https://www.youtube.com/watch?v=81-zDQw_HFs&ab_channel=PaulaAndreaMartinez --------> DONE
+ * 2. Parte 2 -> https://www.youtube.com/watch?v=9Ybd42-6pZI&ab_channel=PaulaAndreaMartinez -----> 00:00
  * 3. Parte 3-> https://www.youtube.com/watch?v=0sNQkejIT2g&ab_channel=PaulaAndreaMartinez
  * ----> https://drive.google.com/drive/u/1/folders/110R2f1TpvbWL8Y-t7herYzhk2jzvMA5a
  * 
@@ -28,10 +26,22 @@ package com.reto3Quadbike.Reto3;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
+/**
+ * 
+ * Reto3Application
+ * @author andre
+ */
 @SpringBootApplication
+@EnableConfigurationProperties
+@EntityScan(basePackages = {"com.reto3Quadbike.Reto3.Model"})
 public class Reto3Application {
-
+    /**
+     * main 
+     * @param args 
+     */
 	public static void main(String[] args) {
 		SpringApplication.run(Reto3Application.class, args);
 	}

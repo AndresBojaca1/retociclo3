@@ -3,12 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.reto3Quadbike.Reto3;
+package com.reto3Quadbike.Reto3.Interface;
 
+import com.reto3Quadbike.Reto3.Model.Category;
 import org.springframework.data.repository.CrudRepository;
 
 /**
- *
+ * CategoryInterface
+ * Esta interface implementa el Repository que es manejado por JPA de la tabla y la clase Category
+ * 
+ * 
+ * @since 23/10/2021
+ * @version 0.0.1 - SNAPSHOT
  * @author andre
  */
 public interface CategoryInterface extends CrudRepository<Category, Integer> {
