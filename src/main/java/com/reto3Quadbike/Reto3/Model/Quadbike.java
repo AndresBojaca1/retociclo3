@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -47,24 +48,27 @@ public class Quadbike implements Serializable {
      * Definición de la variable name
      * Es un String que contiene el nombre de la cuatrimoto
      */
+    @Column(length = 45)
     private String name;
     
     /**
      * Definición de la variable brand 
      * Es un String que contiene la marca de la cuatrimoto
      */
+    @Column(length = 45)
     private String brand;
     
     /**
      * Definición de la variable year 
      * Es un Integer que contiene el año de modelo de la cuatrimoto
-     */
+     */@Column(length = 4)
     private Integer year;
     
     /**
      * Definición de la variable description 
      * Es un String que contiene el texto de descripción de la cuatrimoto
      */
+     @Column(length = 250)
     private String description;
 
     /**
@@ -89,7 +93,7 @@ public class Quadbike implements Serializable {
      * Relacion uno a muchos Reservations
      */
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "quadbike")
-    @JsonIgnoreProperties({"quadbike", "client"})
+    @JsonIgnoreProperties({"quadbike", "message"}) // ----- > Antes de message era Client : REVISAR 28/10/21
     private List<Reservation> reservations;
 
     //CREACION GETTER AND SETTER DE LOS ATRIBUTOS

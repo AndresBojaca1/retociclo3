@@ -97,6 +97,9 @@ public class ReservationServicios {
                 if (reservation.getStatus() != null) {
                     respuesta.get().setStatus(reservation.getStatus());
                 }
+                if (reservation.getScore() != null) {
+                    respuesta.get().setScore(reservation.getScore());
+                }
                 metodoCrud.save(respuesta.get());
                 return respuesta.get();
             } else {

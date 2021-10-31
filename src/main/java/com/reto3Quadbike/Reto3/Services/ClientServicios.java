@@ -89,6 +89,9 @@ public class ClientServicios {
                 if (client.getName() != null) {
                     respuesta.get().setName(client.getName());
                 }
+                if (client.getEmail() != null) {
+                    respuesta.get().setEmail(client.getEmail());
+                }
                 if (client.getAge() != null) {
                     respuesta.get().setAge(client.getAge());
                 }

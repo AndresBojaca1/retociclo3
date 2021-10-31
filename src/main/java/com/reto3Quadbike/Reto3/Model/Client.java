@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -44,24 +45,28 @@ public class Client implements Serializable {
      * Definición de la variable email 
      * Es un String que contiene el email del cliente
      */
+    @Column(length = 45)
     private String email;
     
     /**
      * Definición de la variable password 
      * Es un String que contiene la contraseña del cliente
      */
+    @Column(length = 45)
     private String password;
     
     /**
      * Definición de la variable name 
      * Es un String que contiene el nombre del cliente
      */
+    @Column(length = 45)
     private String name;
     
     /**
      * Definición de la variable age 
      * Es un Integer que contiene la edad del cliente 
-     */
+     */ 
+    @Column(length = 3)
     private Integer age;
 
     /**

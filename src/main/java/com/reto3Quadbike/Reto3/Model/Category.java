@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -43,13 +44,15 @@ public class Category implements Serializable {
     /**
      * Definición de la variable name
      * Es un String que hace referencia al nombre de la categoría
-     */    
+     */
+    @Column(length = 45)    
     private String name;
     
     /**
      * Definición de la variable description
      * Es un String que contiene la descripción de la categoría, 
-     */    
+     */
+    @Column(length = 250)
     private String description;
 
     /**

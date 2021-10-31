@@ -86,6 +86,15 @@ public class MessageServicios {
         if (message.getIdMessage() != null) {
             Optional<Message> respuesta = metodoCrud.getMessage(message.getIdMessage());
             if (!respuesta.isEmpty()) {
+                //TEST ----------------------------------------------------------------
+                if (message.getQuadbike() != null) {
+                    respuesta.get().setQuadbike(message.getQuadbike());
+                }
+                if (message.getClient() != null) {
+                    respuesta.get().setClient(message.getClient());
+                }
+                //TEST -------------------------------------------------------------------
+                
                 if (message.getMessageText() != null) {
                     respuesta.get().setMessageText(message.getMessageText());
                 }
