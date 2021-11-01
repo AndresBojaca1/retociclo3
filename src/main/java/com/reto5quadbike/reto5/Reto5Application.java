@@ -36,7 +36,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
  */
 @SpringBootApplication
 @EnableConfigurationProperties
-@EntityScan(basePackages = {"com.reto3Quadbike.Reto3.Model"})
+@EntityScan(basePackages = {"com.reto5quadbike.reto5.model"})
 public class Reto5Application {
     /**
      * main 
