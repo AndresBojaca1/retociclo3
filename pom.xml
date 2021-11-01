@@ -8,11 +8,11 @@
 		<version>2.5.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.reto3Quadbike</groupId>
-	<artifactId>Reto3</artifactId>
+	<groupId>com.reto5quadbike</groupId>
+	<artifactId>Reto5</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Reto3</name>
-	<description>Elaboracion del reto 3</description>
+	<name>Reto5</name>
+	<description>Elaboracion del reto 5</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
